@@ -1,0 +1,65 @@
+
+/* Feed Container */
+.feed {
+    display: flex;
+    flex-wrap: wrap; /* Ensures cards wrap to the next row */
+    gap: 20px; /* Adds space between cards */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    justify-content: center; /* Center-align cards horizontally */
+  }
+  
+  /* Card Style */
+  .card {
+    background: #fff; /* White card background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Ensures content stays inside rounded corners */
+    width: 300px; /* Fixed width for cards */
+    text-align: left; /* Center-align text content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover Effect */
+  /* .card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); } */
+  
+  /* Thumbnail Image */
+  .card img {
+    width: 100%; /* Full width for responsive images */
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Crops image to fit dimensions */
+    border-bottom: 2px solid #eee; /* Visual separation */
+  }
+  
+  /* Card Text */
+  .card h2 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+    color: #333; /* Dark gray for text */
+  }
+  
+  .card h3 {
+    font-size: 16px;
+    margin: 0 0 10px;
+    color: #777; /* Lighter gray for secondary text */
+  }
+  
+  .card p {
+    font-size: 14px;
+    margin: 0 0 15px;
+    color: #999; /* Light gray for views count */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .feed {
+      gap: 15px;
+    }
+  
+    .card {
+      width: 90%; /* Reduce card width on smaller screens */
+    }
+  }
+  
