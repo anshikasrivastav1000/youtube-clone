@@ -10,11 +10,11 @@ import music from '../../assets/music.png';
 import blog from '../../assets/blogs.png';
 import news from '../../assets/news.png';
 
-function Sidebar({sidebar}) {
+function Sidebar({sidebar ,category,setCategory}) {
   return (
     <div className={`sidebar ${sidebar ? "":"small-sidebar"}`}>
       <div className="shortcut-links">
-        <div className="side-link">
+        <div className="side-link" >
           <img src={home} alt="Home" />
           <span>Home</span>
         </div>

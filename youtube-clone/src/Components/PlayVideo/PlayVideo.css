@@ -1,0 +1,156 @@
+/* PlayVideo.css */
+
+/* General container styling */
+.PlayVideo {
+    width: 70%;
+    padding-left: 2%;
+   
+    align-items: start;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Video player styling */
+  .PlayVideo video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Title styling */
+  h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  /* Video info section */
+  .play-video-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  .play-video-info p {
+    margin: 0;
+  }
+  .play-video-info div {
+    display: flex;
+    gap: 20px;
+  }
+  .play-video-info span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .play-video-info img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Divider */
+  hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 15px 0;
+  }
+  
+  /* Publisher section */
+  .publisher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .publisher img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .publisher div {
+    flex-grow: 1;
+  }
+  .publisher h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+  .publisher p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #777;
+  }
+  .publisher button {
+    background-color: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .publisher button:hover {
+    background-color: #e60000;
+  }
+  
+  /* Video description */
+  .vid-des {
+    font-size: 14px;
+    color: #444;
+  }
+  .vid-des p {
+    margin: 5px 0;
+  }
+  .vid-des h4 {
+    margin: 15px 0 10px;
+    font-size: 16px;
+  }
+  
+  /* Comments section */
+  .comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  .comment img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .comment h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #222;
+  }
+  .comment h4 span {
+    font-size: 12px;
+    color: #666;
+    margin-left: 5px;
+  }
+  .comment p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Comment actions */
+  .comment-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  .comment-action img {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  .comment-action span {
+    font-size: 12px;
+    color: #777;
+  }
+  
