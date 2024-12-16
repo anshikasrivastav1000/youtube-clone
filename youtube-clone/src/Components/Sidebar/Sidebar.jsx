@@ -18,7 +18,7 @@ function Sidebar({sidebar ,category,setCategory}) {
           <img src={home} alt="Home" />
           <span>Home</span>
         </div>
-        <div className={`side-link ${category ===0?"active":""}`} onClick={()=>setCategory(20)}>
+        <div className={`side-link ${category ===20?"active":""}`} onClick={()=>setCategory(20)}>
           <img src={game_icon} alt="Gaming" />
           <span>Gaming</span>
         </div>
