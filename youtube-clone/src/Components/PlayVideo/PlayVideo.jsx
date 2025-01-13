@@ -4,14 +4,14 @@ import like from '../../assets/like.png'
 import dislike from '../../assets/dislike.png'
 import share from '../../assets/share.png'
 import save from '../../assets/save.png'
-import jack from '../../assets/jack.png'
-import user_profile from '../../assets/user_profile.jpg'
-import { API_KEY, value_converter } from '../../data'
+
+import { API_KEY, value_converter ,commentData} from '../../data'
 import moment from 'moment';
 
 function PlayVideo({videoId}) {
   const [apiData,setApiData] = useState(null);
   const [channelData,setChannelData] = useState(null);
+  // const [commentData,setCommentData] = useState([]);
   const fetchVideoData = async () =>{
     //fetching video data
     const videoDetails_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`
@@ -22,6 +22,19 @@ function PlayVideo({videoId}) {
     //fetching channel data
     const channelData_url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails&id=${apiData?.snippet.channelId}&key=${API_KEY}`
     await fetch(channelData_url).then(response=>response.json().then(data => setChannelData(data.items[0])));
+
+    //fetching other data
+    // const comment_url =`https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}_VB39Jo8mAQ&key=${API_KEY}`
+    // await fetch(comment_url).then(response=>response.json().then(data => setCommentData(data.items)));
+
+    // //fetching related videos
+    // const related_url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoId}&type=video&key=${API_KEY}`
+    // await fetch(related_url).then(response=>response.json().then(data => setRelatedVideos(data.items)));
+
+    // //fetching playlist items
+    // const playlist_url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${apiData?.contentDetails.relatedPlaylists.watchLater}&maxResults=5&key=${API_KEY}`
+    // await fetch(playlist_url).then(response=>response.json().then(data => setPlaylistItems(data.items)));
+
   }
 
   useEffect(()=>{
@@ -30,7 +43,7 @@ function PlayVideo({videoId}) {
 
   useEffect(()=>{
     fetchChannelData();
-  },[apiData?.snippet.channelId])
+  },[apiData])
 
 
   return (
@@ -53,8 +66,8 @@ function PlayVideo({videoId}) {
     <img src={channelData?channelData.snippet.thumbnails.default.url:""} alt='' />
     <div>
     <h3>{apiData?apiData.snippet.channelTitle:""}</h3>
-    {/* <p>{channelData?value_converter(channelData.statistics.subscriberCount): "1M"}Subscriber</p>
-   */}
+    {/* <p>{channelData?channelData.statistics.subscriberCount: "1M"}Subscriber</p> */}
+  
 
 </div>
 <button>Subscribe</button>
@@ -63,42 +76,25 @@ function PlayVideo({videoId}) {
     <p>{apiData?apiData.snippet.description.slice(0,250) : "description here"}</p>
     <hr/>
     <h4>{apiData?value_converter(apiData.statistics.commentCount):"105"} Comments</h4>
-    <div className="comment">
-      <img src={user_profile} alt='User' />
-      <div>
-        <h4>User Name <span>1 day ago</span></h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit non velit fermentum placerat.</p>
-    <div className="comment-action">
-      <img src={like} alt="" />
-      <span>33</span>
-      <img src= {dislike} alt="" />
+
+    {commentData.map((item,index)=>{
+      return(
+        <div key={index} className="comment">
+        {/* <img src={item.snippet.toLevelComment.snippet.authorProfileImageUrl} alt='User' /> */}
+        <div>
+          <h4>User Name <span>1 day ago</span></h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit non velit fermentum placerat.</p>
+      <div className="comment-action">
+        <img src={like} alt="" />
+        <span>33</span>
+        <img src= {dislike} alt="" />
+      </div>
+      </div>
     </div>
-    </div>
-  </div>
-  <div className="comment">
-      <img src={user_profile} alt='User' />
-      <div>
-        <h4>User Name <span>1 day ago</span></h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit non velit fermentum placerat.</p>
-    <div className="comment-action">
-      <img src={like} alt="" />
-      <span>33</span>
-      <img src= {dislike} alt="" />
-    </div>
-    </div>
-  </div>
-  <div className="comment">
-      <img src={user_profile} alt='User' />
-      <div>
-        <h4>User Name <span>1 day ago</span></h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit non velit fermentum placerat.</p>
-    <div className="comment-action">
-      <img src={like} alt="" />
-      <span>33</span>
-      <img src= {dislike} alt="" />
-    </div>
-    </div>
-  </div>
+    
+      )
+    })}
+  
   </div>
     </div>
     

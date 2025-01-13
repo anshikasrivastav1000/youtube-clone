@@ -9,3 +9,7 @@ export const value_converter = (value) =>{
         return value;
     }
 }
+export const commentData = [
+    { id: 1, userName: "John", likes: 33, dislikes: 2 },
+    { id: 2, userName: "Jane", likes: 21, dislikes: 1 },
+]
